@@ -1,0 +1,70 @@
+int soilMoistureValue = 0;
+int temperatureValue = 0;
+int moisturePercentage = 0;
+int temperatureThreshold = 0;
+int moistureThreshold = 0;
+
+void setup() {
+  pinMode(3, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  soilMoistureValue = analogRead(A0);
+  temperatureValue = analogRead(A1); // Assuming temperature sensor is connected to A1
+
+  moisturePercentage = map(soilMoistureValue, 490, 1023, 100, 0);
+
+  Serial.print("Moisture: ");
+  Serial.print(moisturePercentage);
+  Serial.print("%, Temperature: ");
+  Serial.print(temperatureValue);
+  Serial.println("°C");
+
+  // Cactus thresholds
+if (moisturePercentage < 15 && temperatureValue > 20 && temperatureValue < 30) {
+  controlPump(true);
+} else {
+  controlPump(false);
+}
+
+// Fern thresholds
+if (moisturePercentage > 50 && moisturePercentage < 70 && temperatureValue > 18 && temperatureValue < 24) {
+  controlPump(true);
+} else {
+  controlPump(false);
+}
+
+// Basil thresholds
+if (moisturePercentage > 40 && moisturePercentage < 60 && temperatureValue > 18 && temperatureValue < 28) {
+  controlPump(true);
+} else {
+  controlPump(false);
+}
+
+// Peace Lily thresholds
+if (moisturePercentage > 40 && moisturePercentage < 60 && temperatureValue > 18 && temperatureValue < 24) {
+  controlPump(true);
+} else {
+  controlPump(false);
+}
+
+// Tomato Plant thresholds
+if (moisturePercentage > 50 && moisturePercentage < 70 && temperatureValue > 20 && temperatureValue < 30) {
+  controlPump(true);
+} else {
+  controlPump(false);
+}
+
+  delay(1000); // Add a delay to avoid fast serial output
+}
+
+void controlPump(bool pumpOn) {
+  if (pumpOn) {
+    Serial.println("Pump on");
+    digitalWrite(3, LOW);
+  } else {
+    Serial.println("Pump off");
+    digitalWrite(3, HIGH);
+  }
+}
