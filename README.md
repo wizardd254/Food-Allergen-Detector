@@ -29,7 +29,7 @@ To install the Food Allergen Detector, follow these steps:
 To use the Food Allergen Detector, run the following command in your terminal:
 
 ```bash
-python main.py
+python final.py
 ```
 
 Follow the prompts to input the food items you wish to analyze.
