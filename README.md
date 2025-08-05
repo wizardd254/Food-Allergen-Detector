@@ -51,12 +51,3 @@ Contributions are welcome! If you would like to contribute to the Food Allergen 
    git push origin feature/MyFeature
    ```
 5. Open a Pull Request.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-For any inquiries or feedback, please contact:
-
-- Your Name - [your.email@example.com](mailto:your.email@example.com)
-- Project Link: [Food Allergen Detector](https://github.com/wizardd254/Food-Allergen-Detector)
